@@ -1,0 +1,10 @@
+{
+  "description": "Portfólio pessoal responsivo para apresentar a trajetória, habilidades e projetos de um estudante de tecnologia, com área restrita para gerenciar projetos.",
+  "robots": {
+    "index": true
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
