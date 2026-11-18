@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Painel de projetos | Emanuel Farias</title>
+    <meta
+      name="description"
+      content="Painel local de Emanuel Farias para cadastrar, visualizar e excluir projetos que serão exibidos na página de portfólio pessoal."
+    />
+    <meta property="og:title" content="Painel de projetos | Emanuel Farias" />
+    <meta
+      property="og:description"
+      content="Painel local para organizar os projetos exibidos no portfólio."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://seu-dominio.vercel.app/img/logo.svg" />
+    <meta property="og:url" content="https://seu-dominio.vercel.app/dashboard.html" />
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/dashboard.js"></script>
+  </head>
+  <body>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+    <header class="cabecalho">
+      <nav class="navegacao container" aria-label="Navegação principal">
+        <a class="marca" href="index.html" aria-label="Página inicial de Emanuel Farias"
+          ><img src="img/logo.svg" alt="" width="42" height="42" /><span>Emanuel Farias</span></a
+        >
+        <div class="menu-desktop">
+          <a href="index.html">Início</a><a href="quemsoueu.html">Quem sou eu</a
+          ><a href="portfolio.html">Portfólio</a>
+          <a
+            class="link-cadeado ativo"
+            href="login.html"
+            aria-label="Entrar na área restrita"
+            aria-current="page"
+            ><svg aria-hidden="true" viewBox="0 0 24 24">
+              <rect width="18" height="11" x="3" y="11" rx="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg
+          ></a>
+        </div>
+        <details class="menu-mobile">
+          <summary aria-label="Abrir menu">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M4 12h16M4 6h16M4 18h16"></path>
+            </svg>
+          </summary>
+          <div class="menu-mobile-links">
+            <a href="index.html">Início</a><a href="quemsoueu.html">Quem sou eu</a
+            ><a href="portfolio.html">Portfólio</a>
+            <a
+              class="link-cadeado ativo"
+              href="login.html"
+              aria-label="Entrar na área restrita"
+              aria-current="page"
+              ><svg aria-hidden="true" viewBox="0 0 24 24">
+                <rect width="18" height="11" x="3" y="11" rx="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg
+              ><span>Área restrita</span></a
+            >
+          </div>
+        </details>
+      </nav>
+    </header>
+
+    <main id="conteudo" class="pagina-interna container">
+      <div class="cabecalho-dashboard">
+        <div>
+          <p class="rotulo">Área restrita</p>
+          <h1>Painel de projetos</h1>
+          <p>Os dados ficam salvos somente neste navegador.</p>
+        </div>
+        <button class="botao-secundario" id="botao-sair" type="button">Sair</button>
+      </div>
+
+      <div class="grade-dashboard">
+        <form class="formulario" id="formulario-projeto">
+          <h2>Cadastrar projeto</h2>
+          <div class="campo">
+            <label for="titulo">Título</label>
+            <input
+              id="titulo"
+              name="titulo"
+              type="text"
+              placeholder="Ex.: Meu novo site"
+              required
+            />
+          </div>
+          <div class="campo">
+            <label for="descricao">Descrição</label>
+            <textarea
+              id="descricao"
+              name="descricao"
+              placeholder="Explique o objetivo do projeto"
+              required
+            ></textarea>
+          </div>
+          <div class="campo">
+            <label for="imagem">Imagem por URL</label>
+            <input
+              id="imagem"
+              name="imagem"
+              type="url"
+              placeholder="https://exemplo.com/imagem.webp"
+            />
+          </div>
+          <div class="campo">
+            <label for="link">Link</label>
+            <input id="link" name="link" type="url" placeholder="https://meu-projeto.vercel.app" />
+          </div>
+          <button type="submit">Salvar projeto</button>
+          <p class="mensagem sucesso" id="mensagem-projeto" role="status" aria-live="polite"></p>
+        </form>
+
+        <section class="painel" aria-labelledby="titulo-cadastrados">
+          <h2 id="titulo-cadastrados">Projetos cadastrados</h2>
+          <div class="lista-dashboard" id="lista-dashboard"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="rodape">
+      <div class="conteudo-rodape container">
+        <p>© 2025 Emanuel Farias</p>
+        <ul class="links-sociais" aria-label="Contato e redes sociais">
+          <li><a href="mailto:seu-email@exemplo.com">[SEU EMAIL]</a></li>
+          <li><a href="https://github.com/seu-usuario">[SEU GITHUB]</a></li>
+          <li><a href="https://linkedin.com/in/seu-usuario">[SEU LINKEDIN]</a></li>
+          <li><a href="https://instagram.com/seu-usuario">[SEU INSTAGRAM]</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

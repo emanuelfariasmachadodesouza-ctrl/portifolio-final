@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projetos | Emanuel Farias</title>
+    <meta
+      name="description"
+      content="Veja projetos de Emanuel Farias em desenvolvimento web, sistemas, cultura regional e integração com bancos de dados e tecnologias modernas."
+    />
+    <meta property="og:title" content="Projetos | Emanuel Farias" />
+    <meta
+      property="og:description"
+      content="Projetos de desenvolvimento web, sistemas e tecnologia criados por Emanuel Farias."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://seu-dominio.vercel.app/img/foto.webp" />
+    <meta property="og:url" content="https://seu-dominio.vercel.app/portfolio.html" />
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/portfolio.js"></script>
+  </head>
+  <body>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+    <header class="cabecalho">
+      <nav class="navegacao container" aria-label="Navegação principal">
+        <a class="marca" href="index.html" aria-label="Página inicial de Emanuel Farias"
+          ><img src="img/logo.svg" alt="" width="42" height="42" /><span>Emanuel Farias</span></a
+        >
+        <div class="menu-desktop">
+          <a href="index.html">Início</a><a href="quemsoueu.html">Quem sou eu</a
+          ><a class="ativo" href="portfolio.html" aria-current="page">Portfólio</a>
+          <a class="link-cadeado" href="login.html" aria-label="Entrar na área restrita"
+            ><svg aria-hidden="true" viewBox="0 0 24 24">
+              <rect width="18" height="11" x="3" y="11" rx="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg
+          ></a>
+        </div>
+        <details class="menu-mobile">
+          <summary aria-label="Abrir menu">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M4 12h16M4 6h16M4 18h16"></path>
+            </svg>
+          </summary>
+          <div class="menu-mobile-links">
+            <a href="index.html">Início</a><a href="quemsoueu.html">Quem sou eu</a
+            ><a class="ativo" href="portfolio.html" aria-current="page">Portfólio</a>
+            <a class="link-cadeado" href="login.html" aria-label="Entrar na área restrita"
+              ><svg aria-hidden="true" viewBox="0 0 24 24">
+                <rect width="18" height="11" x="3" y="11" rx="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg
+              ><span>Área restrita</span></a
+            >
+          </div>
+        </details>
+      </nav>
+    </header>
+
+    <main id="conteudo" class="pagina-interna container">
+      <div class="cabecalho-pagina">
+        <p class="rotulo">Aprendizado na prática</p>
+        <h1>Meus projetos</h1>
+        <p>
+          Uma seleção de sistemas, sites e ideias que representam o que venho aprendendo em
+          tecnologia.
+        </p>
+      </div>
+      <section aria-labelledby="titulo-lista">
+        <h2 id="titulo-lista">Projetos em destaque</h2>
+        <div class="grade-projetos" id="lista-projetos">
+          <article class="projeto">
+            <div class="metadados-projeto">
+              <span class="etiqueta">Sistema web</span><span class="etiqueta">Concluído</span>
+            </div>
+            <h3>Sistema de gerenciamento</h3>
+            <p>
+              Sistema criado para organizar informações e tornar tarefas de gerenciamento mais
+              simples.
+            </p>
+            <ul class="tecnologias">
+              <li>PHP</li>
+              <li>JavaScript</li>
+              <li>MySQL</li>
+            </ul>
+            <a
+              class="botao botao-secundario"
+              href="#"
+              aria-label="Ver detalhes do Sistema de gerenciamento"
+              >Detalhes</a
+            >
+          </article>
+          <article class="projeto">
+            <div class="metadados-projeto">
+              <span class="etiqueta">Website</span><span class="etiqueta">Concluído</span>
+            </div>
+            <h3>Site institucional</h3>
+            <p>
+              Site responsivo desenvolvido para apresentar uma organização, seus serviços e formas
+              de contato.
+            </p>
+            <ul class="tecnologias">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+            <a
+              class="botao botao-secundario"
+              href="#"
+              aria-label="Ver detalhes do Site institucional"
+              >Detalhes</a
+            >
+          </article>
+          <article class="projeto">
+            <div class="metadados-projeto">
+              <span class="etiqueta">Aplicação web</span><span class="etiqueta">Concluído</span>
+            </div>
+            <h3>Aplicação integrada a banco de dados</h3>
+            <p>
+              Aplicação para cadastrar e consultar dados, praticando a integração entre interface e
+              banco de dados.
+            </p>
+            <ul class="tecnologias">
+              <li>React</li>
+              <li>TypeScript</li>
+              <li>Supabase</li>
+            </ul>
+            <a
+              class="botao botao-secundario"
+              href="#"
+              aria-label="Ver detalhes da Aplicação integrada a banco de dados"
+              >Detalhes</a
+            >
+          </article>
+          <article class="projeto">
+            <div class="metadados-projeto">
+              <span class="etiqueta">Cultura regional</span><span class="etiqueta">Em breve</span>
+            </div>
+            <h3>Carlos Chagas e sua cultura</h3>
+            <p>
+              Projeto dedicado a apresentar histórias, referências e manifestações culturais de
+              Carlos Chagas.
+            </p>
+            <ul class="tecnologias">
+              <li>Em planejamento</li>
+            </ul>
+            <a
+              class="botao botao-secundario"
+              href="#"
+              aria-label="Ver detalhes de Carlos Chagas e sua cultura"
+              >Detalhes</a
+            >
+          </article>
+          <article class="projeto">
+            <div class="metadados-projeto">
+              <span class="etiqueta">História</span><span class="etiqueta">Em breve</span>
+            </div>
+            <h3>Reis do Cangaço</h3>
+            <p>
+              Experiência digital em planejamento sobre personagens e acontecimentos ligados ao
+              cangaço.
+            </p>
+            <ul class="tecnologias">
+              <li>Em planejamento</li>
+            </ul>
+            <a class="botao botao-secundario" href="#" aria-label="Ver detalhes de Reis do Cangaço"
+              >Detalhes</a
+            >
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="conteudo-rodape container">
+        <p>© 2025 Emanuel Farias</p>
+        <ul class="links-sociais" aria-label="Contato e redes sociais">
+          <li><a href="mailto:seu-email@exemplo.com">[SEU EMAIL]</a></li>
+          <li><a href="https://github.com/seu-usuario">[SEU GITHUB]</a></li>
+          <li><a href="https://linkedin.com/in/seu-usuario">[SEU LINKEDIN]</a></li>
+          <li><a href="https://instagram.com/seu-usuario">[SEU INSTAGRAM]</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
