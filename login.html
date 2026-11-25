@@ -15,10 +15,16 @@
       content="Acesso simulado ao painel de gerenciamento dos projetos do portfólio."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://seu-dominio.vercel.app/img/logo.svg" />
-    <meta property="og:url" content="https://seu-dominio.vercel.app/login.html" />
+    <meta property="og:image" content="https://MEU-SITE.vercel.app/img/logo.svg" />
+    <meta property="og:url" content="https://MEU-SITE.vercel.app/login.html" />
+    <link rel="canonical" href="https://MEU-SITE.vercel.app/login.html" />
     <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Biblioteca do Supabase (versão fixa). Precisa vir ANTES do login.js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"
+    ></script>
     <script type="module" src="js/login.js"></script>
   </head>
   <body>
@@ -87,10 +93,10 @@
       <div class="conteudo-rodape container">
         <p>© 2025 Emanuel Farias</p>
         <ul class="links-sociais" aria-label="Contato e redes sociais">
-          <li><a href="mailto:seu-email@exemplo.com">[SEU EMAIL]</a></li>
-          <li><a href="https://github.com/seu-usuario">[SEU GITHUB]</a></li>
-          <li><a href="https://linkedin.com/in/seu-usuario">[SEU LINKEDIN]</a></li>
-          <li><a href="https://instagram.com/seu-usuario">[SEU INSTAGRAM]</a></li>
+          <li><a href="mailto:SEU_EMAIL_AQUI">E-mail</a></li>
+          <li><a href="https://github.com/USUARIO_GITHUB">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/USUARIO_LINKEDIN">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/USUARIO_INSTAGRAM">Instagram</a></li>
         </ul>
       </div>
     </footer>
