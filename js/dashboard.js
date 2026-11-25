@@ -2,7 +2,7 @@ import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./config.js";
 
 // Pega o usuário e a senha guardados pelo login.js.
 // Isso só protege a navegação desta demonstração: quem de fato confere a senha
-// é o banco, a cada chamada de salvar_projeto e excluir_projeto.
+// é o banco, a cada chamada de salvar_projeto, excluir_projeto e cadastrar_usuario.
 const usuarioLogado = sessionStorage.getItem("usuarioLogin");
 const senhaLogada = sessionStorage.getItem("senhaLogin");
 const temSessao = Boolean(usuarioLogado && senhaLogada);
@@ -16,6 +16,11 @@ const cliente = window.supabase
   ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
   : null;
 
+// Regras do novo usuário (iguais às da função cadastrar_usuario no banco).
+const REGRA_NOME_USUARIO = /^[a-z0-9_.-]{3,30}$/;
+const SENHA_MINIMA = 8;
+const SENHA_MAXIMA = 72;
+
 // Aceita somente endereços que começam com http:// ou https://.
 // Isso impede links perigosos, como "javascript:...".
 function ehUrlSegura(texto) {
@@ -27,7 +32,7 @@ function ehUrlSegura(texto) {
   }
 }
 
-// Estas três funções isolam o acesso aos dados. Agora são assíncronas porque
+// Estas funções isolam o acesso aos dados. São assíncronas porque
 // precisam esperar a resposta do banco pela internet.
 async function lerProjetos() {
   const { data, error } = await cliente
@@ -65,16 +70,31 @@ async function excluirProjeto(id) {
   return data; // true se excluiu
 }
 
+// NOVO: cadastra um usuário. Quem pede é o usuário logado; o banco confere.
+async function cadastrarUsuario(novoUsuario, novaSenha) {
+  const { data, error } = await cliente.rpc("cadastrar_usuario", {
+    p_usuario: usuarioLogado,
+    p_senha: senhaLogada,
+    p_novo_usuario: novoUsuario,
+    p_nova_senha: novaSenha,
+  });
+
+  if (error) throw error;
+  return data; // id (uuid) do usuário criado
+}
+
 const formularioProjeto = document.querySelector("#formulario-projeto");
 const mensagemProjeto = document.querySelector("#mensagem-projeto");
+const formularioUsuario = document.querySelector("#formulario-usuario");
+const mensagemUsuario = document.querySelector("#mensagem-usuario");
 const listaDashboard = document.querySelector("#lista-dashboard");
 const botaoSair = document.querySelector("#botao-sair");
 
-// Mostra uma mensagem verde (sucesso) ou vermelha (erro) abaixo do formulário.
-function mostrarMensagem(texto, tipo) {
-  mensagemProjeto.textContent = texto;
-  mensagemProjeto.classList.toggle("sucesso", tipo === "sucesso");
-  mensagemProjeto.classList.toggle("erro", tipo === "erro");
+// Mostra uma mensagem verde (sucesso) ou vermelha (erro) no elemento indicado.
+function mostrarMensagem(elemento, texto, tipo) {
+  elemento.textContent = texto;
+  elemento.classList.toggle("sucesso", tipo === "sucesso");
+  elemento.classList.toggle("erro", tipo === "erro");
 }
 
 async function mostrarProjetos() {
@@ -126,11 +146,15 @@ async function mostrarProjetos() {
       try {
         const excluiu = await excluirProjeto(projeto.id);
         if (!excluiu) throw new Error("O banco não confirmou a exclusão.");
-        mostrarMensagem("Projeto excluído com sucesso.", "sucesso");
+        mostrarMensagem(mensagemProjeto, "Projeto excluído com sucesso.", "sucesso");
         await mostrarProjetos();
       } catch (erro) {
         console.error("Erro ao excluir o projeto.", erro);
-        mostrarMensagem("Não foi possível excluir o projeto. Tente novamente.", "erro");
+        mostrarMensagem(
+          mensagemProjeto,
+          "Não foi possível excluir o projeto. Tente novamente.",
+          "erro",
+        );
         botaoExcluir.disabled = false;
         botaoExcluir.textContent = "Excluir";
       }
@@ -143,10 +167,14 @@ async function mostrarProjetos() {
 
 formularioProjeto?.addEventListener("submit", async (evento) => {
   evento.preventDefault();
-  mostrarMensagem("", "");
+  mostrarMensagem(mensagemProjeto, "", "");
 
   if (!cliente) {
-    mostrarMensagem("O sistema não carregou. Verifique sua internet e recarregue a página.", "erro");
+    mostrarMensagem(
+      mensagemProjeto,
+      "O sistema não carregou. Verifique sua internet e recarregue a página.",
+      "erro",
+    );
     return;
   }
 
@@ -160,11 +188,19 @@ formularioProjeto?.addEventListener("submit", async (evento) => {
 
   // Imagem e link são opcionais, mas, se vierem preenchidos, precisam ser http(s).
   if (projeto.imagem && !ehUrlSegura(projeto.imagem)) {
-    mostrarMensagem("A imagem precisa ser um endereço que comece com http:// ou https://.", "erro");
+    mostrarMensagem(
+      mensagemProjeto,
+      "A imagem precisa ser um endereço que comece com http:// ou https://.",
+      "erro",
+    );
     return;
   }
   if (projeto.link && !ehUrlSegura(projeto.link)) {
-    mostrarMensagem("O link precisa ser um endereço que comece com http:// ou https://.", "erro");
+    mostrarMensagem(
+      mensagemProjeto,
+      "O link precisa ser um endereço que comece com http:// ou https://.",
+      "erro",
+    );
     return;
   }
 
@@ -175,17 +211,87 @@ formularioProjeto?.addEventListener("submit", async (evento) => {
   try {
     await salvarProjeto(projeto);
     formularioProjeto.reset();
-    mostrarMensagem("Projeto salvo com sucesso.", "sucesso");
+    mostrarMensagem(mensagemProjeto, "Projeto salvo com sucesso.", "sucesso");
     await mostrarProjetos();
   } catch (erro) {
     console.error("Erro ao salvar o projeto.", erro);
     mostrarMensagem(
+      mensagemProjeto,
       "Não foi possível salvar o projeto. Confira os dados e tente novamente.",
       "erro",
     );
   } finally {
     botaoSalvar.disabled = false;
     botaoSalvar.textContent = "Salvar projeto";
+  }
+});
+
+// NOVO: envio do formulário "Cadastrar novo usuário".
+formularioUsuario?.addEventListener("submit", async (evento) => {
+  evento.preventDefault();
+  mostrarMensagem(mensagemUsuario, "", "");
+
+  if (!cliente) {
+    mostrarMensagem(
+      mensagemUsuario,
+      "O sistema não carregou. Verifique sua internet e recarregue a página.",
+      "erro",
+    );
+    return;
+  }
+
+  const dados = new FormData(formularioUsuario);
+  // O nome vai em minúsculas e sem espaços nas pontas. A senha NÃO é alterada.
+  const novoUsuario = String(dados.get("novoUsuario")).trim().toLowerCase();
+  const novaSenha = String(dados.get("novaSenha"));
+  const confirmarSenha = String(dados.get("confirmarSenha"));
+
+  // Confere no JavaScript para dar resposta rápida (o banco confere de novo).
+  if (!REGRA_NOME_USUARIO.test(novoUsuario)) {
+    mostrarMensagem(
+      mensagemUsuario,
+      "O nome de usuário deve ter de 3 a 30 caracteres: letras minúsculas, números, ponto, hífen ou _.",
+      "erro",
+    );
+    return;
+  }
+  if (novaSenha.length < SENHA_MINIMA || novaSenha.length > SENHA_MAXIMA) {
+    mostrarMensagem(
+      mensagemUsuario,
+      `A senha deve ter de ${SENHA_MINIMA} a ${SENHA_MAXIMA} caracteres.`,
+      "erro",
+    );
+    return;
+  }
+  if (novaSenha !== confirmarSenha) {
+    mostrarMensagem(mensagemUsuario, "As senhas não são iguais. Digite novamente.", "erro");
+    return;
+  }
+
+  const botaoCadastrar = formularioUsuario.querySelector('button[type="submit"]');
+  botaoCadastrar.disabled = true;
+  botaoCadastrar.textContent = "Cadastrando...";
+
+  try {
+    await cadastrarUsuario(novoUsuario, novaSenha);
+    formularioUsuario.reset();
+    mostrarMensagem(mensagemUsuario, `Usuário "${novoUsuario}" cadastrado com sucesso.`, "sucesso");
+  } catch (erro) {
+    console.error("Erro ao cadastrar o usuário.", erro);
+
+    // O código do erro vem da função do banco (errcode).
+    let texto = "Não foi possível cadastrar o usuário. Tente novamente em instantes.";
+    if (erro?.code === "23505") {
+      texto = "Esse nome de usuário já existe. Escolha outro.";
+    } else if (erro?.code === "22023") {
+      texto = "Nome de usuário ou senha fora das regras. Confira os campos.";
+    } else if (erro?.code === "28000") {
+      texto = "Sua sessão não é mais válida. Saia e entre novamente.";
+    }
+    mostrarMensagem(mensagemUsuario, texto, "erro");
+  } finally {
+    botaoCadastrar.disabled = false;
+    botaoCadastrar.textContent = "Cadastrar usuário";
   }
 });
 
