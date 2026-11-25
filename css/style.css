@@ -780,13 +780,13 @@ h3 {
     transition: none;
   }
 }
-.logo {
+.logo-emanuel.png.png {
     display: flex;
     align-items: center;
     text-decoration: none;
 }
 
-.logo img {
+.logo-emanuel.png.png {
     width: 160px;
     height: auto;
     object-fit: contain;
