@@ -3,21 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projetos | Emanuel Farias</title>
+    <title>Projetos de desenvolvimento web | Emanuel Farias</title>
     <meta
       name="description"
       content="Veja projetos de Emanuel Farias em desenvolvimento web, sistemas, cultura regional e integração com bancos de dados e tecnologias modernas."
     />
-    <meta property="og:title" content="Projetos | Emanuel Farias" />
+    <meta name="author" content="Emanuel Farias" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#08090d" />
+    <link rel="canonical" href="https://MEU-SITE.vercel.app/portfolio.html" />
+
+    <meta property="og:site_name" content="Emanuel Farias" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Projetos de desenvolvimento web | Emanuel Farias" />
     <meta
       property="og:description"
       content="Projetos de desenvolvimento web, sistemas e tecnologia criados por Emanuel Farias."
     />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://MEU-SITE.vercel.app/img/foto.webp" />
     <meta property="og:url" content="https://MEU-SITE.vercel.app/portfolio.html" />
-    <link rel="canonical" href="https://MEU-SITE.vercel.app/portfolio.html" />
+    <meta property="og:image" content="https://MEU-SITE.vercel.app/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Portfólio de projetos de Emanuel Farias, desenvolvedor web"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Projetos de desenvolvimento web | Emanuel Farias" />
+    <meta
+      name="twitter:description"
+      content="Projetos de desenvolvimento web, sistemas e tecnologia criados por Emanuel Farias."
+    />
+    <meta name="twitter:image" content="https://MEU-SITE.vercel.app/img/og-image.jpg" />
+    <meta
+      name="twitter:image:alt"
+      content="Portfólio de projetos de Emanuel Farias, desenvolvedor web"
+    />
+
     <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="stylesheet" href="css/style.css" />
     <!-- Biblioteca do Supabase (versão fixa). Precisa vir ANTES do portfolio.js -->
     <script
@@ -25,6 +51,38 @@
       src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"
     ></script>
     <script type="module" src="js/portfolio.js"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "url": "https://MEU-SITE.vercel.app/portfolio.html",
+            "name": "Projetos de desenvolvimento web | Emanuel Farias",
+            "inLanguage": "pt-BR",
+            "author": { "@id": "https://MEU-SITE.vercel.app/#pessoa" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Início",
+                "item": "https://MEU-SITE.vercel.app/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Portfólio",
+                "item": "https://MEU-SITE.vercel.app/portfolio.html"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
