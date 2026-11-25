@@ -63,13 +63,12 @@
         </details>
       </nav>
     </header>
-
     <main id="conteudo" class="pagina-interna container">
       <div class="cabecalho-dashboard">
         <div>
           <p class="rotulo">Área restrita</p>
           <h1>Painel de projetos</h1>
-          <p>Os dados ficam salvos somente neste navegador.</p>
+          <p>Os projetos ficam salvos no banco de dados (Supabase).</p>
         </div>
         <button class="botao-secundario" id="botao-sair" type="button">Sair</button>
       </div>
@@ -118,8 +117,55 @@
           <div class="lista-dashboard" id="lista-dashboard"></div>
         </section>
       </div>
-    </main>
 
+      <form class="formulario formulario-usuario" id="formulario-usuario">
+        <h2>Cadastrar novo usuário</h2>
+        <p class="dica">Quem for cadastrado aqui poderá entrar na área restrita.</p>
+        <div class="campo">
+          <label for="novo-usuario">Nome de usuário</label>
+          <input
+            id="novo-usuario"
+            name="novoUsuario"
+            type="text"
+            minlength="3"
+            maxlength="30"
+            autocomplete="off"
+            autocapitalize="none"
+            spellcheck="false"
+            required
+          />
+          <p class="dica">De 3 a 30 caracteres: letras minúsculas, números, ponto, hífen ou _.</p>
+        </div>
+        <div class="campo">
+          <label for="nova-senha">Senha</label>
+          <input
+            id="nova-senha"
+            name="novaSenha"
+            type="password"
+            minlength="8"
+            maxlength="72"
+            autocomplete="new-password"
+            required
+          />
+          <p class="dica">De 8 a 72 caracteres.</p>
+        </div>
+        <div class="campo">
+          <label for="confirmar-senha">Confirmar senha</label>
+          <input
+            id="confirmar-senha"
+            name="confirmarSenha"
+            type="password"
+            minlength="8"
+            maxlength="72"
+            autocomplete="new-password"
+            required
+          />
+        </div>
+        <button type="submit">Cadastrar usuário</button>
+        <p class="mensagem sucesso" id="mensagem-usuario" role="status" aria-live="polite"></p>
+      </form>
+    </main>
+   
     <footer class="rodape">
       <div class="conteudo-rodape container">
         <p>© 2025 Emanuel Farias</p>
