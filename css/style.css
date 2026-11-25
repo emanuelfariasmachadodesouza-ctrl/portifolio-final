@@ -780,22 +780,29 @@ h3 {
     transition: none;
   }
 }
-.logo-emanuel.png.png {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+
+/* LOGO PRINCIPAL */
+.marca {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
 }
 
-.logo {
-    width: 160px;
-    height: auto;
-    object-fit: contain;
-    display: block;
+.marca img {
+  display: block;
+  width: 170px;
+  height: auto;
+  max-height: 65px;
+  object-fit: contain;
 }
 
+/* LOGO EM TELAS MENORES */
 @media (max-width: 768px) {
-    .logo img {
-        width: 120px;
-    }
+  .marca img {
+    width: 125px;
+    max-height: 55px;
+  }
 }
+
 }
