@@ -780,5 +780,22 @@ h3 {
     transition: none;
   }
 }
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
 
+.logo img {
+    width: 160px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        width: 120px;
+    }
+}
 }
