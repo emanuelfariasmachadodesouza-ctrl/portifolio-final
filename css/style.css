@@ -791,10 +791,10 @@ h3 {
 }
 
 @media (max-width: 768px) {
-  .marca img {
-    width: 125px;
-    max-height: 55px;
-  }
+ .marca img {
+  width: 170px;      /* aumente ou diminua a largura */
+  max-height: 65px;  /* limite da altura */
+}
 }
 
 /* Evita que o menu fixo cubra o título ao clicar em "Contato" */
