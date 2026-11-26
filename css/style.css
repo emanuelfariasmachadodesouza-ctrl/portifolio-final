@@ -801,5 +801,24 @@ h3 {
 #contato {
   scroll-margin-top: 100px;
 }
+/* Formulário da página de contato */
+.formulario-contato {
+  max-width: 620px;
+}
 
+/* Texto de ajuda pequeno sob os campos (se você já adicionou, não repita) */
+.dica {
+  margin: 0;
+  color: var(--texto-suave);
+  font-size: 0.88rem;
+}
+
+/* Campo-armadilha: fica fora da tela, mas robôs ainda o encontram */
+.armadilha {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 }
