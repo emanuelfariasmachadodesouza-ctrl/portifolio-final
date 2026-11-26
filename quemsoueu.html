@@ -45,15 +45,8 @@
     />
 
     <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="stylesheet" href="css/style.css" />
-    <!-- Biblioteca do Supabase (versão fixa). Precisa vir ANTES do quemsoueu.js -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"
-    ></script>
-    <script type="module" src="js/quemsoueu.js"></script>
-
+  
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -178,43 +171,12 @@
             projeto aos poucos.
           </p>
         </section>
-        <section>
+              <section id="contato">
           <h2>Contato</h2>
           <p>
             Para conversar sobre tecnologia, projetos escolares ou oportunidades de aprendizagem,
-            envie uma mensagem pelo formulário abaixo ou para
-            <a href="mailto:SEU_EMAIL_AQUI">SEU_EMAIL_AQUI</a>.
+            <a href="contato.html">envie uma mensagem pela página de contato</a>.
           </p>
-          <form class="formulario" id="formulario-contato">
-            <div class="campo">
-              <label for="contato-nome">Nome</label>
-              <input
-                id="contato-nome"
-                name="nome"
-                type="text"
-                maxlength="100"
-                autocomplete="name"
-                required
-              />
-            </div>
-            <div class="campo">
-              <label for="contato-email">E-mail</label>
-              <input
-                id="contato-email"
-                name="email"
-                type="email"
-                maxlength="150"
-                autocomplete="email"
-                required
-              />
-            </div>
-            <div class="campo">
-              <label for="contato-mensagem">Mensagem</label>
-              <textarea id="contato-mensagem" name="mensagem" maxlength="1000" required></textarea>
-            </div>
-            <button type="submit">Enviar mensagem</button>
-            <p class="mensagem sucesso" id="mensagem-contato" role="status" aria-live="polite"></p>
-          </form>
         </section>
       </div>
     </main>
