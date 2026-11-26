@@ -782,14 +782,14 @@ h3 {
 }
 
 /* LOGO PRINCIPAL */
-.marca {
+.logo-emanuel {
   display: flex;
   align-items: center;
   flex-shrink: 0;
   text-decoration: none;
 }
 
-.marca img {
+.logo-emanuel {
   display: block;
   width: 170px;
   height: auto;
@@ -799,7 +799,7 @@ h3 {
 
 /* LOGO EM TELAS MENORES */
 @media (max-width: 768px) {
-  .marca img {
+  .logo-emanuel {
     width: 125px;
     max-height: 55px;
   }
