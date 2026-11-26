@@ -1,201 +1,189 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato | Emanuel Farias</title>
+    <meta
+      name="description"
+      content="Entre em contato com Emanuel Farias: conte qual é o seu problema ou ideia e receba um retorno sobre projetos de desenvolvimento web e tecnologia."
+    />
+    <meta name="author" content="Emanuel Farias" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#08090d" />
+    <link rel="canonical" href="https://portfolio-final-ten.vercel.app/contato.html" />
 
-  <meta name="description" content="Entre em contato com Emanuel para solicitar serviços, apresentar projetos e pedir orçamentos de tecnologia.">
+    <meta property="og:site_name" content="Emanuel Farias" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contato | Emanuel Farias" />
+    <meta
+      property="og:description"
+      content="Conte qual é o seu problema ou ideia e fale com Emanuel Farias."
+    />
+    <meta property="og:url" content="https://portfolio-final-ten.vercel.app/contato.html" />
+    <meta property="og:image" content="https://portfolio-final-ten.vercel.app/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Contato com Emanuel Farias, desenvolvedor web" />
 
-  <title>Contato | Emanuel</title>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contato | Emanuel Farias" />
+    <meta
+      name="twitter:description"
+      content="Conte qual é o seu problema ou ideia e fale com Emanuel Farias."
+    />
+    <meta name="twitter:image" content="https://portfolio-final-ten.vercel.app/img/og-image.jpg" />
 
-  <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Biblioteca do Supabase (versão fixa). Precisa vir ANTES do contato.js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"
+    ></script>
+    <script type="module" src="js/contato.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script type="module" src="js/contato.js"></script>
-</head>
-
-<body>
-
-  <header class="cabecalho">
-    <nav class="navegacao container">
-
-      <a href="index.html" class="marca">
-        EMANUEL
-      </a>
-
-      <div class="menu-desktop">
-        <a href="index.html">Início</a>
-        <a href="portfolio.html">Portfólio</a>
-        <a href="quemsoueu.html">Sobre mim</a>
-        <a href="contato.html" class="ativo">Contato</a>
-      </div>
-
-      <details class="menu-mobile">
-        <summary aria-label="Abrir menu">
-          ☰
-        </summary>
-
-        <div class="menu-mobile-links">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ContactPage",
+            "url": "https://portfolio-final-ten.vercel.app/contato.html",
+            "name": "Contato | Emanuel Farias",
+            "inLanguage": "pt-BR"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Início",
+                "item": "https://portfolio-final-ten.vercel.app/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Contato",
+                "item": "https://portfolio-final-ten.vercel.app/contato.html"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+    <header class="cabecalho">
+      <nav class="navegacao container" aria-label="Navegação principal">
+        <a class="marca" href="index.html" aria-label="Página inicial de Emanuel Farias">
+          <img src="img/logo-emanuel.png" alt="Emanuel Farias, desenvolvedor web" />
+        </a>
+        <div class="menu-desktop">
           <a href="index.html">Início</a>
+          <a href="quemsoueu.html">Quem sou eu</a>
           <a href="portfolio.html">Portfólio</a>
-          <a href="quemsoueu.html">Sobre mim</a>
-          <a href="contato.html" class="ativo">Contato</a>
+          <a class="ativo" href="contato.html" aria-current="page">Contato</a>
+          <a class="link-cadeado" href="login.html" aria-label="Entrar na área restrita">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <rect width="18" height="11" x="3" y="11" rx="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </a>
         </div>
-      </details>
+        <details class="menu-mobile">
+          <summary aria-label="Abrir menu">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M4 12h16M4 6h16M4 18h16"></path>
+            </svg>
+          </summary>
+          <div class="menu-mobile-links">
+            <a href="index.html">Início</a>
+            <a href="quemsoueu.html">Quem sou eu</a>
+            <a href="portfolio.html">Portfólio</a>
+            <a class="ativo" href="contato.html" aria-current="page">Contato</a>
+            <a class="link-cadeado" href="login.html" aria-label="Entrar na área restrita">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <rect width="18" height="11" x="3" y="11" rx="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <span>Área restrita</span>
+            </a>
+          </div>
+        </details>
+      </nav>
+    </header>
 
-    </nav>
-  </header>
-
-  <main class="container pagina-interna contato-pagina">
-
-    <section class="cabecalho-pagina">
-      <p class="rotulo">VAMOS CONVERSAR</p>
-
-      <h1>Tem um projeto em mente?</h1>
-
-      <p>
-        Está procurando uma solução tecnológica ou precisa
-        desenvolver uma ideia? Conte o que você precisa.
-        Estou disponível para conhecer sua proposta e
-        conversar sobre possíveis soluções.
-      </p>
-    </section>
-
-    <section class="contato-layout">
-
-      <div class="contato-informacoes">
-
-        <span class="rotulo">ATENDIMENTO</span>
-
-        <h2>Vamos transformar sua necessidade em solução.</h2>
-
+    <main id="conteudo" class="pagina-interna container">
+      <div class="cabecalho-pagina">
+        <p class="rotulo">Fale comigo</p>
+        <h1>Contato</h1>
         <p>
-          Utilize o formulário para apresentar seu projeto,
-          solicitar um orçamento ou explicar um problema
-          que precisa de uma solução.
+          Conte qual é o seu problema ou a sua ideia. Eu leio cada mensagem e respondo no e-mail
+          que você informar.
         </p>
-
-        <div class="contato-beneficio">
-          <span>01</span>
-          <div>
-            <h3>Explique sua necessidade</h3>
-            <p>Conte o que você deseja desenvolver ou resolver.</p>
-          </div>
-        </div>
-
-        <div class="contato-beneficio">
-          <span>02</span>
-          <div>
-            <h3>Análise da solicitação</h3>
-            <p>As informações serão recebidas para avaliação.</p>
-          </div>
-        </div>
-
-        <div class="contato-beneficio">
-          <span>03</span>
-          <div>
-            <h3>Retorno e atendimento</h3>
-            <p>Utilizarei seu e-mail para dar continuidade à conversa.</p>
-          </div>
-        </div>
-
       </div>
 
-      <form id="formulario-contato" class="formulario">
-
-        <h2>Solicitar atendimento</h2>
-
-        <p class="subtitulo-formulario">
-          Preencha os dados para enviar sua solicitação.
-        </p>
-
+      <form class="formulario formulario-contato" id="formulario-contato">
         <div class="campo">
-          <label for="nome">Nome completo</label>
-
+          <label for="contato-nome">Nome</label>
           <input
-            type="text"
-            id="nome"
+            id="contato-nome"
             name="nome"
-            placeholder="Digite seu nome"
+            type="text"
             maxlength="100"
             autocomplete="name"
             required
-          >
+          />
         </div>
-
         <div class="campo">
-          <label for="email">E-mail</label>
-
+          <label for="contato-email">E-mail</label>
           <input
-            type="email"
-            id="email"
+            id="contato-email"
             name="email"
-            placeholder="seuemail@exemplo.com"
+            type="email"
             maxlength="150"
             autocomplete="email"
             required
-          >
+          />
         </div>
-
         <div class="campo">
-          <label for="servico">Qual serviço você procura?</label>
-
-          <select id="servico" name="servico" required>
-            <option value="">Selecione uma opção</option>
-            <option value="Desenvolvimento de sites">Desenvolvimento de sites</option>
-            <option value="Desenvolvimento de sistemas">Desenvolvimento de sistemas</option>
-            <option value="Consultoria tecnológica">Consultoria tecnológica</option>
-            <option value="Manutenção de computadores">Manutenção de computadores</option>
-            <option value="Hardware e infraestrutura">Hardware e infraestrutura</option>
-            <option value="Automação">Automação</option>
-            <option value="Outro">Outro</option>
-          </select>
-        </div>
-
-        <div class="campo">
-          <label for="mensagem">Descreva sua necessidade</label>
-
+          <label for="contato-mensagem">Qual é o problema?</label>
           <textarea
-            id="mensagem"
+            id="contato-mensagem"
             name="mensagem"
-            placeholder="Explique seu projeto, problema ou serviço desejado..."
-            maxlength="850"
-            rows="6"
+            maxlength="1000"
+            placeholder="Explique com o máximo de detalhes que puder"
             required
           ></textarea>
-
-          <small>Máximo de 850 caracteres.</small>
+          <p class="dica" id="contador-mensagem">0 / 1000 caracteres</p>
         </div>
 
-        <button type="submit" class="botao-enviar-contato">
-          Enviar solicitação
-        </button>
+        <!-- Campo-armadilha contra robôs: pessoas não veem nem preenchem. -->
+        <div class="armadilha" aria-hidden="true">
+          <label for="contato-site">Não preencha este campo</label>
+          <input id="contato-site" name="site" type="text" tabindex="-1" autocomplete="off" />
+        </div>
 
-        <p
-          id="mensagem-contato"
-          class="mensagem"
-          role="status"
-          aria-live="polite"
-        ></p>
-
-        <p class="privacidade-contato">
-          Seus dados serão utilizados exclusivamente para
-          responder à sua solicitação.
-        </p>
-
+        <button type="submit">Enviar mensagem</button>
+        <p class="mensagem sucesso" id="mensagem-contato" role="status" aria-live="polite"></p>
       </form>
+    </main>
 
-    </section>
-
-  </main>
-
-  <footer class="rodape">
-    <div class="container conteudo-rodape">
-      <p>© 2026 Emanuel. Todos os direitos reservados.</p>
-      <a href="index.html">Voltar ao início</a>
-    </div>
-  </footer>
-
-</body>
+    <footer class="rodape">
+      <div class="conteudo-rodape container">
+        <p>© 2026 Emanuel Farias</p>
+        <ul class="links-sociais" aria-label="Contato e redes sociais">
+          <li><a href="mailto:SEU_EMAIL_AQUI">E-mail</a></li>
+          <li><a href="https://github.com/USUARIO_GITHUB">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/USUARIO_LINKEDIN">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/USUARIO_INSTAGRAM">Instagram</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
 </html>
