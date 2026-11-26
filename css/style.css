@@ -781,15 +781,8 @@ h3 {
   }
 }
 
-/* LOGO PRINCIPAL */
-.logo-emanuel {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  text-decoration: none;
-}
-
-.logo-emanuel {
+/* Logo principal (substitui o tamanho fixo de 42px) */
+.marca img {
   display: block;
   width: 170px;
   height: auto;
@@ -797,12 +790,16 @@ h3 {
   object-fit: contain;
 }
 
-/* LOGO EM TELAS MENORES */
 @media (max-width: 768px) {
-  .logo-emanuel {
+  .marca img {
     width: 125px;
     max-height: 55px;
   }
+}
+
+/* Evita que o menu fixo cubra o título ao clicar em "Contato" */
+#contato {
+  scroll-margin-top: 100px;
 }
 
 }
