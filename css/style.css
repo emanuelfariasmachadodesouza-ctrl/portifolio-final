@@ -781,20 +781,20 @@ h3 {
   }
 }
 
-/* Logo principal (substitui o tamanho fixo de 42px) */
+/* Logo principal */
 .marca img {
   display: block;
-  width: 170px;
-  height: auto;
-  max-height: 65px;
+  width: auto;
+  height: 56px;
+  max-width: 220px;
   object-fit: contain;
 }
 
 @media (max-width: 768px) {
- .marca img {
-  width: 170px;      /* aumente ou diminua a largura */
-  max-height: 65px;  /* limite da altura */
-}
+  .marca img {
+    height: 46px;
+    max-width: 170px;
+  }
 }
 
 /* Evita que o menu fixo cubra o título ao clicar em "Contato" */
